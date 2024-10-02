@@ -17,7 +17,7 @@ const Login = () => {
       "nombreusuario":user,
       "password": contra
     }
-    IniciarSesion('http://localhost:3000/login', credenciales);
+    IniciarSesion('https://express-pawn-shop-production.up.railway.app/login', credenciales);
   }
   
   return (
