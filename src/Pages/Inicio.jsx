@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Componentes/Header";
 import Navbar from "../Componentes/Navbar";
 import CardComponent from "../Componentes/Card";
 import { Typography } from "@mui/material";
-import { Tabla } from "../Componentes/Tabla";
+import Tabla from "../Componentes/Tabla";
 
 const Inicio = () => {
+
+  
+  const rowHeader = [
+    "ID",
+    "NOMBRE",
+    "APELLIDO",
+    "Marca",
+    "Vehiculo",
+    "ESTATUS"
+  ];
+
+  const dataTable = [
+    [1,"Oscar","Osorio","Ford","Figo","A"],
+    [2,"Oscar","Osorio","MG","SZ","A"],
+    [3,"Oscar","Osorio","INE",121546,"A"]
+  ]
+
+
   return (
     <>
       <div className="flex flex-col items-center  gap-4 grow self-center">
@@ -34,7 +52,7 @@ const Inicio = () => {
             >
               Empeños Recientes
             </Typography>
-            <Tabla />
+            <Tabla rowHeader = {rowHeader} dataTable= {dataTable} />
           </CardComponent>
 
           <CardComponent>

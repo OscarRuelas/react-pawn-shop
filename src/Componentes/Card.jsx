@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 
 const CardComponent = ({children}) => {
   return (
-    <Card sx={{ width: 500 }}>
+    <Card>
         <CardContent>
           { children }
         </CardContent>

@@ -1,45 +1,46 @@
-// DarkModeToggle.jsx
-import React, { useState } from 'react';
-import { createTheme, ThemeProvider, CssBaseline, Switch, Box } from '@mui/material';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import RadioGroup from '@mui/material/RadioGroup';
+import Radio from '@mui/material/Radio';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import { useColorScheme } from '@mui/material/styles';
 
-const DarkModeToggle = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Función para cambiar entre modo oscuro y claro
-  const handleThemeChange = () => {
-    setDarkMode(!darkMode);
-  };
-
-  // Crear el tema
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-      background: {
-        default: darkMode ? '#121212' : '#f5f5f5', // Fondo de la página
-        paper: darkMode ? '#1e1e1e' : '#ffffff', // Fondo de los componentes como Cards
-      },
-    },
-    components: {
-        MuiCard: {
-          styleOverrides: {
-            root: {
-              boxShadow: 'none', // Eliminar sombras en modo oscuro
-            },
-          },
-        },
-      },
-  });
-
+export const DarkMode = () => {
+  const { mode, setMode } = useColorScheme();
+  if (!mode) {
+    return null;
+  }
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ p: 2 }}>
-        {/* Switch para alternar entre temas */}
-        <Switch checked={darkMode} onChange={handleThemeChange} />
-        {children}
-      </Box>
-    </ThemeProvider>
+    <Box
+      sx={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        borderRadius: 1,
+        p: 3,
+        minHeight: '56px',
+      }}
+    >
+      <FormControl>
+        <FormLabel id="demo-theme-toggle">Theme</FormLabel>
+        <RadioGroup
+          aria-labelledby="demo-theme-toggle"
+          name="theme-toggle"
+          row
+          value={mode}
+          onChange={(event) => setMode(event.target.value)}
+        >
+          <FormControlLabel value="light" control={<Radio />} label="Light" />
+          <FormControlLabel value="dark" control={<Radio />} label="Dark" />
+        </RadioGroup>
+      </FormControl>
+    </Box>
   );
-};
+}
 
-export default DarkModeToggle;
+

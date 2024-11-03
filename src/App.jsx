@@ -11,6 +11,7 @@ import Carros from "./Pages/Carros";
 import Empeños from "./Pages/Empeños";
 import Historial from "./Pages/Hisotrial";
 import PrivateRouter from "./routes/PrivateRouter";
+import AgregarClientes from "./Pages/AgregarClientes";
 export default function App() {
   return (
     <>
@@ -33,6 +34,15 @@ export default function App() {
           element={
             <PrivateRouter>
               <Clientes />
+            </PrivateRouter>
+          }
+        />
+        {/* Ruta a la página de Agregar Clientes */}
+        <Route
+          path="/AgregarClientes"
+          element={
+            <PrivateRouter>
+              <AgregarClientes />
             </PrivateRouter>
           }
         />

@@ -22,10 +22,9 @@ import DriveEtaIcon from '@mui/icons-material/DriveEta';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { Link } from 'react-router-dom';
-import DarkMode from './DarkMode';
-import DarkModeToggle from './DarkMode';
 
 const drawerWidth = 240;
+
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -119,7 +118,6 @@ export default function MiniDrawer() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -140,7 +138,7 @@ export default function MiniDrawer() {
             Mini variant drawer
           </Typography>
           <Typography variant="h6" noWrap component="div">
-            <DarkModeToggle />
+            {/* <DarkModeToggle /> */}
           </Typography>
           
         </Toolbar>
