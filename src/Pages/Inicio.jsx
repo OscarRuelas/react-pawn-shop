@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../Componentes/Header";
 import Navbar from "../Componentes/Navbar";
 import CardComponent from "../Componentes/Card";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Tabla from "../Componentes/Tabla";
 
 const Inicio = () => {
@@ -26,7 +26,7 @@ const Inicio = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center  gap-4 grow self-center">
+      <Box className="flex flex-col items-center  gap-4 grow self-center m10">
         <CardComponent>
           <Typography component="h1" variant="h5" color="primary" gutterBottom>
             Empeños Activos
@@ -42,7 +42,7 @@ const Inicio = () => {
           </Typography>
         </CardComponent>
 
-        <div className="flex gap-8">
+        <Box className="flex gap-8">
           <CardComponent>
             <Typography
               component="h1"
@@ -83,8 +83,8 @@ const Inicio = () => {
               Chevrolet Cruze 2017 - Vence: 2023-07-20
             </Typography>
           </CardComponent>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react'
 import CardComponent from '../Componentes/Card'
-import { Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import BottonForm from '../Componentes/BottonForm'
 import Tabla from '../Componentes/Tabla'
+import { Link } from 'react-router-dom'
 
 
 const Clientes = () => {
@@ -35,12 +36,14 @@ const Clientes = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center  gap-4 grow self-center '>
+      <Box className='flex flex-col items-center  gap-4 grow self-center mt-20 '>
         <CardComponent>
-          <BottonForm descripcion="Agregar Clientes" href="/ClientesAgregar" />
+          <Link to={"/AgregarClientes"}>
+            <BottonForm descripcion="Agregar Clientes" href="/ClientesAgregar" fullsize={false} />
+          </Link>
           <Tabla rowHeader = {rowHeader} dataTable= {dataTable} />
         </CardComponent>
-      </div>
+      </Box>
     </>
   )
 }

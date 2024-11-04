@@ -26,8 +26,8 @@ export const useLogin = () => {
                 });
 
                 navegacion("/Inicio");
-                 
-                 console.log(response)
+                login();
+                console.log(response)
         }catch(err){
             alert("Error al iniciar sesion: ", err)
         }

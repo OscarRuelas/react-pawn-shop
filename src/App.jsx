@@ -12,6 +12,7 @@ import Empeños from "./Pages/Empeños";
 import Historial from "./Pages/Hisotrial";
 import PrivateRouter from "./routes/PrivateRouter";
 import AgregarClientes from "./Pages/AgregarClientes";
+import { AgregarCarros } from "./Pages/AgregarCarros";
 export default function App() {
   return (
     <>
@@ -55,6 +56,17 @@ export default function App() {
             </PrivateRouter>
           }
         />
+
+
+        <Route
+          path="/AgregarCarros"
+          element={
+            <PrivateRouter>
+              <AgregarCarros />
+            </PrivateRouter>
+          }
+        />
+
         {/* Ruta a la página de Empeños */}
         <Route
           path="/Prestamos"
