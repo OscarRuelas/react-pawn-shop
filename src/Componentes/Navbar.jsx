@@ -22,6 +22,8 @@ import DriveEtaIcon from '@mui/icons-material/DriveEta';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { Link } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from '../context/AuthContext';
 
 const drawerWidth = 240;
 
@@ -108,6 +110,8 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const { logout } = useAuth();
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -134,12 +138,18 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
+          <Box className="flex w-screen justify-between">
           <Typography variant="h6" noWrap component="div">
             Auto Empeño
           </Typography>
-          <Typography variant="h6" noWrap component="div">
+          <Typography noWrap component="div">
+            <IconButton aria-label="logout" onClick={logout}>
+              <LogoutIcon className='text-white' />
+            </IconButton>
+              
             {/* <DarkModeToggle /> */}
           </Typography>
+          </Box>
           
         </Toolbar>
       </AppBar>

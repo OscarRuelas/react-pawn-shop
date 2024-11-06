@@ -26,7 +26,7 @@ const Inicio = () => {
 
   return (
     <>
-      <Box className="flex flex-col items-center  gap-4 grow self-center m10">
+      <Box className="flex flex-col items-center  gap-4 grow self-center">
         <CardComponent>
           <Typography component="h1" variant="h5" color="primary" gutterBottom>
             Empeños Activos

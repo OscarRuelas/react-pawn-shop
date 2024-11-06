@@ -13,80 +13,91 @@ import Historial from "./Pages/Hisotrial";
 import PrivateRouter from "./routes/PrivateRouter";
 import AgregarClientes from "./Pages/AgregarClientes";
 import { AgregarCarros } from "./Pages/AgregarCarros";
+import { NotFound } from "./Pages/NotFound";
+import { AuthProvider } from "./context/AuthContext";
+import MiniDrawer from "./Componentes/Navbar";
 export default function App() {
   return (
     <>
-      {/* <Router> */}
-      <Routes>
-        {/* Ruta a la página de login */}
-        <Route path="/" element={<Login />} />
-        {/* Ruta a la página de Inicio */}
-        <Route
-          path="/Inicio"
-          element={
-            <PrivateRouter>
-              <Inicio />
-            </PrivateRouter>
-          }
-        />
-        {/* Ruta a la página de Clientes */}
-        <Route
-          path="/Clientes"
-          element={
-            <PrivateRouter>
-              <Clientes />
-            </PrivateRouter>
-          }
-        />
-        {/* Ruta a la página de Agregar Clientes */}
-        <Route
-          path="/AgregarClientes"
-          element={
-            <PrivateRouter>
-              <AgregarClientes />
-            </PrivateRouter>
-          }
-        />
-        {/* Ruta a la página de Carros */}
-        <Route
-          path="/Autos"
-          element={
-            <PrivateRouter>
-              <Carros />
-            </PrivateRouter>
-          }
-        />
+      <AuthProvider>
+        {/* <Router> */}
+        
+        <Routes>
+          {/* Rutas publicas */}
+          {/* Ruta a la página de login */}
+          <Route path="/" element={<Login />} />
 
+          {/* Ruta a la página de login */}
+          <Route path="*" element={<NotFound />} />
+          {/* Rutas privadas */}
+          {/* Ruta a la página de Inicio */}
+          
+          <Route
+            path="/Inicio"
+            element={
+              <PrivateRouter>
+                <Inicio />
+              </PrivateRouter>
+            }
+          />
+          {/* Ruta a la página de Clientes */}
+          <Route
+            path="/Clientes"
+            element={
+              <PrivateRouter>
+                <Clientes />
+              </PrivateRouter>
+            }
+          />
+          {/* Ruta a la página de Agregar Clientes */}
+          <Route
+            path="/AgregarClientes"
+            element={
+              <PrivateRouter>
+                <AgregarClientes />
+              </PrivateRouter>
+            }
+          />
+          {/* Ruta a la página de Carros */}
+          <Route
+            path="/Autos"
+            element={
+              <PrivateRouter>
+                <Carros />
+              </PrivateRouter>
+            }
+          />
 
-        <Route
-          path="/AgregarCarros"
-          element={
-            <PrivateRouter>
-              <AgregarCarros />
-            </PrivateRouter>
-          }
-        />
+          <Route
+            path="/AgregarCarros"
+            element={
+              <PrivateRouter>
+                <AgregarCarros />
+              </PrivateRouter>
+            }
+          />
 
-        {/* Ruta a la página de Empeños */}
-        <Route
-          path="/Prestamos"
-          element={
-            <PrivateRouter>
-              <Empeños />
-            </PrivateRouter>
-          }
-        />
-        {/* Ruta a la página de Historial */}
-        <Route
-          path="/Historial"
-          element={
-            <PrivateRouter>
-              <Historial />
-            </PrivateRouter>
-          }
-        />
-      </Routes>
-      {/* </Router> */}
+          {/* Ruta a la página de Empeños */}
+          <Route
+            path="/Prestamos"
+            element={
+              <PrivateRouter>
+                <Empeños />
+              </PrivateRouter>
+            }
+          />
+          {/* Ruta a la página de Historial */}
+          <Route
+            path="/Historial"
+            element={
+              <PrivateRouter>
+                <Historial />
+              </PrivateRouter>
+            }
+          />
+        </Routes>
+        {/* </Router> */}
+      </AuthProvider>
     </>
   );
 }

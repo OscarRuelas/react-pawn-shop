@@ -1,11 +1,14 @@
 import * as React from 'react'
 import Navbar from '../Componentes/Navbar'
+import { useAuth } from '../context/AuthContext';
+import { Navigate } from 'react-router-dom';
+import MiniDrawer from '../Componentes/Navbar';
 
 const PrivateRouter = ({children}) => {
 
-  const { isAuthenticated } = useAuth();
+  const { user } = useAuth();
 
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return user ? <> <MiniDrawer /> {children} </> : <Navigate to="/" />;
 
 }
 
