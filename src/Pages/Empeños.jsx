@@ -24,7 +24,7 @@ const Empeños = () => {
 
 
   return (
-    <Box className="flex flex-col items-center  gap-4 grow self-center">
+    <Box className="flex flex-col items-center  gap-4 grow self-center w-screen">
       <CardComponent>
         <Link to={"/AgregarPrestamo"}>
           <BottonForm descripcion="Agregar Prestamo" fullsize={false} />

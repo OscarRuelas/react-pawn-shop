@@ -15,7 +15,6 @@ import AgregarClientes from "./Pages/AgregarClientes";
 import { AgregarCarros } from "./Pages/AgregarCarros";
 import { NotFound } from "./Pages/NotFound";
 import { AuthProvider } from "./context/AuthContext";
-import MiniDrawer from "./Componentes/Navbar";
 export default function App() {
   return (
     <>

@@ -6,7 +6,7 @@ import Tabla from '../Componentes/Tabla'
 
 
 const Carros = () => {
-  const rowHeader = [
+  const EncabezadoTablaCarros = [
     "ID",
     "MARCA",
     "MODELO",
@@ -20,7 +20,7 @@ const Carros = () => {
     "ESTATUS"
   ];
 
-  const dataTable = [
+  const CarrosRegistrados = [
     {ID:1,MARCA:"FORD",MODELO:2010,YEAR:2010,CONDICION:"BUEN ESTADO",IDCLIENTE:1,VALUACION:50000,MONTOPRESTAMO:30,COSTOMANTENIMIENTO:10000,FECHAINGRESO:"28/10/2024",estatus:"A"},
     {ID:2,MARCA:"FORD",MODELO:2010,YEAR:2010,CONDICION:"BUEN ESTADO",IDCLIENTE:1,VALUACION:50000,MONTOPRESTAMO:30,COSTOMANTENIMIENTO:10000,FECHAINGRESO:"28/10/2024",estatus:"A"},
     {ID:3,MARCA:"FORD",MODELO:2010,YEAR:2010,CONDICION:"BUEN ESTADO",IDCLIENTE:1,VALUACION:50000,MONTOPRESTAMO:30,COSTOMANTENIMIENTO:10000,FECHAINGRESO:"28/10/2024",estatus:"A"},
@@ -37,10 +37,10 @@ const Carros = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center  gap-4 grow self-center '>
+      <div className='flex flex-col items-center  gap-4 grow self-center w-screen '>
         <CardComponent>
           <BottonForm descripcion="Agregar Clientes" href="/ClientesAgregar" />
-          <Tabla rowHeader = {rowHeader} dataTable= {dataTable} />
+          <Tabla rowHeader = {EncabezadoTablaCarros} dataTable= {CarrosRegistrados} />
         </CardComponent>
       </div>
     </>

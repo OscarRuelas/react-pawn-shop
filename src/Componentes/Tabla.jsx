@@ -1,9 +1,15 @@
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
-import React from 'react'
+import { Box, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import React, { useState } from 'react'
 
 const Tabla = (props) => {
 
   const { dataTable } = props;
+
+  const [page, setPage] = useState(1);
+
+  const handleChangePage = (e, newPage) => {
+    setPage(newPage);
+  }
 
   return (
     <Box>
@@ -31,6 +37,9 @@ const Tabla = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Box className="flex flex-row-reverse  mt-5">
+        <Pagination count={10} variant="outlined" color="primary" />
+      </Box>
     </Box>
   )
 }

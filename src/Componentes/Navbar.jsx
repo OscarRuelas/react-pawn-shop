@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -24,6 +23,8 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAuth } from '../context/AuthContext';
+import { DarkMode } from './DarkMode';
+import { useTheme } from '@emotion/react';
 
 const drawerWidth = 240;
 
@@ -107,7 +108,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
-  const theme = useTheme();
+  const theme = useTheme()
   const [open, setOpen] = React.useState(false);
 
   const { logout } = useAuth();
@@ -138,7 +139,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Box className="flex w-screen justify-between">
+          <Box className="flex w-full justify-between">
           <Typography variant="h6" noWrap component="div">
             Auto Empeño
           </Typography>
@@ -146,8 +147,7 @@ export default function MiniDrawer() {
             <IconButton aria-label="logout" onClick={logout}>
               <LogoutIcon className='text-white' />
             </IconButton>
-              
-            {/* <DarkModeToggle /> */}
+            {/* <DarkMode /> */}
           </Typography>
           </Box>
           
@@ -162,7 +162,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Inicio', 'Clientes', 'Autos', 'Prestamos', 'Historial'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }} component={Link} to={`/${text}`} >
+            <ListItem key={index} disablePadding sx={{ display: 'block' }} component={Link} to={`/${text}`} >
               <ListItemButton
                 sx={[
                   {
